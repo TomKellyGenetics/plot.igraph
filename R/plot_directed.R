@@ -8,7 +8,7 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 ##' @name plot_directed
-##' @rdname plot.igraph
+##' @rdname plot_directed
 ##'
 ##' @title Extensions to iGraph for Customising plots
 ##'
