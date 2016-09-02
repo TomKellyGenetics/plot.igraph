@@ -19,13 +19,15 @@ plot_directed(graph, state = "activating", labels = NULL,
 
 \item{labels}{character vector. For labels to plot nodes. Defaults to vertex names in graph object. Entering "" would yield unlabelled nodes.}
 
-\item{layout}{function. Layout function as selected from \code{\link[layout_]{igraph}}. Defaults to layout.fruchterman.reingold. Alternatives include layout.kamada.kawai, layout.reingold.tilford, layout.sugiyama, and layout.davidson.harel.}
+\item{layout}{function. Layout function as selected from \code{\link[igraph]{layout_}}. Defaults to layout.fruchterman.reingold. Alternatives include layout.kamada.kawai, layout.reingold.tilford, layout.sugiyama, and layout.davidson.harel.}
 
 \item{cex.node}{numeric. Defaults to 1.}
 
 \item{cex.label}{numeric. Defaults to 0.75.}
 
-\item{cex.main}{numeric. Defautls to 0.8.}
+\item{cex.arrow}{numeric Defualts to 1.25.}
+
+\item{cex.main}{numeric. Defaults to 0.8.}
 
 \item{arrow_clip}{numeric Defaults to 0.075 (7.5\%).}
 
@@ -50,7 +52,8 @@ Functions to plot_directed or graph structures including customised colors, layo
 
 #generate example graphs
 library("igraph")
-graph_test4_edges <- rbind(c("A", "C"), c("B", "C"), c("C", "D"), c("D", "E"), c("D", "F"), c("F", "G"), c("F", "I"), c("H", "I"))
+graph_test4_edges <- rbind(c("A", "C"), c("B", "C"), c("C", "D"), c("D", "E"),
+                           c("D", "F"), c("F", "G"), c("F", "I"), c("H", "I"))
 graph_test4 <- graph.edgelist(graph_test4_edges, directed = T)
 
 #plots with igraph defaults

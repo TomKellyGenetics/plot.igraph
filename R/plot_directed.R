@@ -17,10 +17,11 @@
 ##' @param graph An \code{\link[igraph]{igraph}} object. Must be directed with known states.
 ##' @param state character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively.
 ##' @param labels character vector. For labels to plot nodes. Defaults to vertex names in graph object. Entering "" would yield unlabelled nodes.
-##' @param layout function. Layout function as selected from \code{\link[layout_]{igraph}}. Defaults to layout.fruchterman.reingold. Alternatives include layout.kamada.kawai, layout.reingold.tilford, layout.sugiyama, and layout.davidson.harel.
+##' @param layout function. Layout function as selected from \code{\link[igraph]{layout_}}. Defaults to layout.fruchterman.reingold. Alternatives include layout.kamada.kawai, layout.reingold.tilford, layout.sugiyama, and layout.davidson.harel.
 ##' @param cex.node numeric. Defaults to 1.
 ##' @param cex.label numeric. Defaults to 0.75.
-##' @param cex.main numeric. Defautls to 0.8.
+##' @param cex.main numeric. Defaults to 0.8.
+##' @param cex.arrow numeric Defualts to 1.25.
 ##' @param col.label character. Specfies the colours of node labels passed to plot. Defaults to par("fg").
 ##' @param arrow_clip numeric Defaults to 0.075 (7.5\%).
 ##' @param pch parameter passed to plot. Defaults to 21. Recommends using selecting between 21-25 to preserve colour behaviour. Otherwise entire node will inherit border.node as it's colour, in which case a light colour is recommended to see labels.
@@ -30,12 +31,13 @@
 ##' @param main,sub,xlab,ylab Plotting paramaters to specify plot titles or axes labels
 ##' @param frame.plot logical. Whether to frame plot with a box. Defaults to FALSE.
 ##' @keywords graph igraph igraph plot
-##' @import igraph
+##' @import igraph graphics
 ##' @examples
 ##'
 ##' #generate example graphs
 ##' library("igraph")
-##' graph_test4_edges <- rbind(c("A", "C"), c("B", "C"), c("C", "D"), c("D", "E"), c("D", "F"), c("F", "G"), c("F", "I"), c("H", "I"))
+##' graph_test4_edges <- rbind(c("A", "C"), c("B", "C"), c("C", "D"), c("D", "E"),
+##'                            c("D", "F"), c("F", "G"), c("F", "I"), c("H", "I"))
 ##' graph_test4 <- graph.edgelist(graph_test4_edges, directed = T)
 ##'
 ##' #plots with igraph defaults
