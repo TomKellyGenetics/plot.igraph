@@ -6,6 +6,8 @@ Author: Tom Kelly
 Maintainer: Tom Kelly <tom.kelly@postgrad.otago.ac.nz>
 Description: Functions to plot network or graph structures including customised colors, layout, states, arrows. Uses graphs functions as an extension of \code{\link[igraph]{igraph}}. Designed for plotting directed graphs.
 License: GPL-3
-Depends: igraph
+Imports:
+    igraph,
+    graphics
 LazyData: TRUE
 RoxygenNote: 5.0.1

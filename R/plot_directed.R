@@ -7,12 +7,12 @@
 #   Build and Reload Package:  'Ctrl + Shift + B'
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
-##' @name path.igraph
-##' @rdname path.igraph
+##' @name plot_directed
+##' @rdname plot.igraph
 ##'
 ##' @title Extensions to iGraph for Customising plots
 ##'
-##' @description Functions to plot igraph or graph structures including customised colors, layout, states, arrows. Uses graphs functions as an extension of \code{\link[igraph]{igraph}}. Designed for plotting directed graphs.
+##' @description Functions to plot_directed or graph structures including customised colors, layout, states, arrows. Uses graphs functions as an extension of \code{\link[igraph]{igraph}}. Designed for plotting directed graphs.
 ##'
 ##' @param graph An \code{\link[igraph]{igraph}} object. Must be directed with known states.
 ##' @param state character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively.
@@ -22,13 +22,13 @@
 ##' @param cex.label numeric. Defaults to 0.75.
 ##' @param cex.main numeric. Defautls to 0.8.
 ##' @param col.label character. Specfies the colours of node labels passed to plot. Defaults to par("fg").
-##' @param arrow_clip numeric Defaults to 0.075 (7.5%).
+##' @param arrow_clip numeric Defaults to 0.075 (7.5\%).
 ##' @param pch parameter passed to plot. Defaults to 21. Recommends using selecting between 21-25 to preserve colour behaviour. Otherwise entire node will inherit border.node as it's colour, in which case a light colour is recommended to see labels.
 ##' @param border.node character. Specfies the colours of node border passed to plot. Defaults to grey33. Applies to whole node shape if pch has only one colour.
 ##' @param fill.node character. Specfies the colours of node fill passed to plot. Defaults to grey66.
 ##' @param col.arrow character. Specfies the colours of arrows passed to plot. Defaults to par("fg").
 ##' @param main,sub,xlab,ylab Plotting paramaters to specify plot titles or axes labels
-##' @param logical. Whether to fram plot with a box. Defaults to FALSE.
+##' @param frame.plot logical. Whether to frame plot with a box. Defaults to FALSE.
 ##' @keywords graph igraph igraph plot
 ##' @import igraph
 ##' @examples
@@ -43,17 +43,17 @@
 ##' plot(graph_test4, layout = layout.kamada.kawai)
 ##'
 ##' #plots with scalar states
-##' plot.igraph(graph_test4, state="activating")
-##' plot.igraph(graph_test4, state="inhibiting")
+##' plot_directed(graph_test4, state="activating")
+##' plot_directed(graph_test4, state="inhibiting")
 ##'
 ##' #plots with vector states
-##' plot.igraph(graph_test4, state=c(1, 1, 1, 1, -1, 1, 1, 1))
-##' plot.igraph(graph_test4, state=c(1, 1, -1, 1, -1, 1, -1, 1))
+##' plot_directed(graph_test4, state=c(1, 1, 1, 1, -1, 1, 1, 1))
+##' plot_directed(graph_test4, state=c(1, 1, -1, 1, -1, 1, -1, 1))
 ##'
 ##' #plot layout customised
-##' plot.igraph(graph_test4, state=c(1, 1, -1, 1, -1, 1, -1, 1), layout = layout.kamada.kawai)
+##' plot_directed(graph_test4, state=c(1, 1, -1, 1, -1, 1, -1, 1), layout = layout.kamada.kawai)
 ##' @export
-plot.igraph <- function(graph, state = "activating", labels = NULL, layout = layout.fruchterman.reingold, cex.node = 1, cex.label = 0.75, cex.arrow=1.25, cex.main=0.8, arrow_clip = 0.075, pch=21, border.node="grey33", fill.node="grey66", col.label = NULL, col.arrow=par("fg"), main=NULL, sub=NULL, xlab="", ylab="", frame.plot=F){
+plot_directed <- function(graph, state = "activating", labels = NULL, layout = layout.fruchterman.reingold, cex.node = 1, cex.label = 0.75, cex.arrow=1.25, cex.main=0.8, arrow_clip = 0.075, pch=21, border.node="grey33", fill.node="grey66", col.label = NULL, col.arrow=par("fg"), main=NULL, sub=NULL, xlab="", ylab="", frame.plot=F){
   L <- layout(graph)
   vs <- V(graph)
   es <- as.data.frame(get.edgelist(graph))
