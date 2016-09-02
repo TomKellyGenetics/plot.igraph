@@ -38,7 +38,7 @@
 ##' library("igraph")
 ##' graph_test4_edges <- rbind(c("A", "C"), c("B", "C"), c("C", "D"), c("D", "E"),
 ##'                            c("D", "F"), c("F", "G"), c("F", "I"), c("H", "I"))
-##' graph_test4 <- graph.edgelist(graph_test4_edges, directed = T)
+##' graph_test4 <- graph.edgelist(graph_test4_edges, directed = TRUE)
 ##'
 ##' #plots with igraph defaults
 ##' plot(graph_test4, layout = layout.fruchterman.reingold)
