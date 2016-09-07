@@ -17,9 +17,9 @@ devtools::install_github("TomKellyGenetics/plot.igraph")
 
 Adapted from the plotting blog http://blog.ryanwalker.us/2014/03/going-viral-with-rs-igraph-package.html (as shared on Rbloggers).
 
-https://rawgit.com/TomKellyGenetics/vioplotx/master/vignettes/plots_viral_quantitate.html
+https://rawgit.com/TomKellyGenetics/plot.igraph/master/vignettes/plots_viral_quantitate.html
 
 See the following vignette for the extensions provided by this package, namely inclusion of inhition or negating arrows. 
 
-https://rawgit.com/TomKellyGenetics/vioplotx/master/vignettes/plots_directed.html
+https://rawgit.com/TomKellyGenetics/plot.igraph/master/vignettes/plots_directed.html
 
