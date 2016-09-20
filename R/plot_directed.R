@@ -15,7 +15,7 @@
 ##' @description Functions to plot_directed or graph structures including customised colors, layout, states, arrows. Uses graphs functions as an extension of \code{\link[igraph]{igraph}}. Designed for plotting directed graphs.
 ##'
 ##' @param graph An \code{\link[igraph]{igraph}} object. Must be directed with known states.
-##' @param state character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively.
+##' @param state character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively. Accepts non-integer values for weighted edges provided that the sign indicates whether links are activating (positive) or inhibiting (negative). May also be entered as text for "activating" or "inhibiting" or as integers for activating (0,1) or inhibiting (-1,2). Compatible with inputs for \code{\link[graphsim]{make_state_matrix}} or \code{\link[graphsim]{generate_expression_graph}}.
 ##' @param labels character vector. For labels to plot nodes. Defaults to vertex names in graph object. Entering "" would yield unlabelled nodes.
 ##' @param layout function. Layout function as selected from \code{\link[igraph]{layout_}}. Defaults to layout.fruchterman.reingold. Alternatives include layout.kamada.kawai, layout.reingold.tilford, layout.sugiyama, and layout.davidson.harel.
 ##' @param cex.node numeric. Defaults to 1.
@@ -68,6 +68,10 @@ plot_directed <- function(graph, state = "activating", labels = NULL, layout = l
   text(Xn, Yn, labels=labels, cex = cex.label*cex.node, col=col.label)
   if(is.numeric(state)){
     state <- as.integer(state)
+    if(!all(state %in% -1:2)){
+      state <- sign(state)
+      warning("state inferred from non-integer weighted edges")
+    }
     if(all(state %in% -1:2)){
       state[state == -1] <- 2
       state[state == 0] <- 1
