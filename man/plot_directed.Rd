@@ -25,7 +25,7 @@ plot_directed(graph, state = "activating", labels = NULL,
 
 \item{cex.label}{numeric. Defaults to 0.75.}
 
-\item{cex.arrow}{numeric Defualts to 1.25. May take a scalar applied to all edges or a vector with values for each edge respectively.}
+\item{cex.arrow}{numeric Defaults to 1.25. May take a scalar applied to all edges or a vector with values for each edge respectively.}
 
 \item{cex.main}{numeric. Defaults to 0.8.}
 

@@ -21,7 +21,7 @@
 ##' @param cex.node numeric. Defaults to 1.
 ##' @param cex.label numeric. Defaults to 0.75.
 ##' @param cex.main numeric. Defaults to 0.8.
-##' @param cex.arrow numeric Defualts to 1.25. May take a scalar applied to all edges or a vector with values for each edge respectively. 
+##' @param cex.arrow numeric Defaults to 1.25. May take a scalar applied to all edges or a vector with values for each edge respectively. 
 ##' @param col.label character. Specfies the colours of node labels passed to plot. Defaults to par("fg").
 ##' @param arrow_clip numeric Defaults to 0.075 (7.5\%).
 ##' @param pch parameter passed to plot. Defaults to 21. Recommends using selecting between 21-25 to preserve colour behaviour. Otherwise entire node will inherit border.node as it's colour, in which case a light colour is recommended to see labels.
