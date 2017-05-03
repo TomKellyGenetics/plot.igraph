@@ -63,9 +63,7 @@ plot_directed <- function(graph, state = "activating", labels = NULL, layout = l
   Ne <- length(es[1]$V1)
   Xn <- L[,1]
   Yn <- L[,2]
-  if(is.null(labels)) labels <- names(vs)
-  plot(Xn, Yn, xaxt="n", yaxt="n", xlab=xlab, ylab=ylab, frame.plot=frame.plot, cex = 2 * cex.node, pch=21, col=border.node, bg=fill.node, main=main, sub=sub, cex.main=cex.main)
-  text(Xn, Yn, labels=labels, cex = cex.label*cex.node, col=col.label)
+  plot(Xn, Yn, xaxt="n", yaxt="n", xlab=xlab, ylab=ylab, frame.plot=frame.plot, cex = 2 * cex.node, pch=1, col=par()$bg, main=main, sub=sub, cex.main=cex.main)
   if(is.numeric(state)){
     state <- as.integer(state)
     if(all(state %in% -1:2)){
@@ -100,5 +98,8 @@ plot_directed <- function(graph, state = "activating", labels = NULL, layout = l
       }
     }
   }
+  if(is.null(labels)) labels <- names(vs)
+  points(Xn, Yn, xaxt="n", yaxt="n", xlab=xlab, ylab=ylab, cex = 2 * cex.node, pch=21, col=border.node, bg=fill.node, main=main, sub=sub, cex.main=cex.main)
+  text(Xn, Yn, labels=labels, cex = cex.label*cex.node, col=col.label)
 }
 

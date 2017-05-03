@@ -74,4 +74,3 @@ plot_directed(graph_test4, state=c(1, 1, -1, 1, -1, 1, -1, 1), layout = layout.k
 \keyword{graph}
 \keyword{igraph}
 \keyword{plot}
-
