@@ -15,7 +15,7 @@ plot_directed(graph, state = "activating", labels = NULL,
 \arguments{
 \item{graph}{An \code{\link[igraph]{igraph}} object. Must be directed with known states.}
 
-\item{state}{character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively.}
+\item{state}{character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively. Accepts non-integer values for weighted edges provided that the sign indicates whether links are activating (positive) or inhibiting (negative). May also be entered as text for "activating" or "inhibiting" or as integers for activating (0,1) or inhibiting (-1,2). Compatible with inputs for \code{\link[graphsim]{make_state_matrix}} or \code{\link[graphsim]{generate_expression_graph}}.}
 
 \item{labels}{character vector. For labels to plot nodes. Defaults to vertex names in graph object. Entering "" would yield unlabelled nodes.}
 
@@ -25,7 +25,7 @@ plot_directed(graph, state = "activating", labels = NULL,
 
 \item{cex.label}{numeric. Defaults to 0.75.}
 
-\item{cex.arrow}{numeric Defualts to 1.25.}
+\item{cex.arrow}{numeric Defaults to 1.25. May take a scalar applied to all edges or a vector with values for each edge respectively.}
 
 \item{cex.main}{numeric. Defaults to 0.8.}
 
@@ -39,7 +39,7 @@ plot_directed(graph, state = "activating", labels = NULL,
 
 \item{col.label}{character. Specfies the colours of node labels passed to plot. Defaults to par("fg").}
 
-\item{col.arrow}{character. Specfies the colours of arrows passed to plot. Defaults to par("fg").}
+\item{col.arrow}{character. Specfies the colours of arrows passed to plot. Defaults to par("fg").  May take a scalar applied to all edges or a vector with colours for each edge respectively.}
 
 \item{main, sub, xlab, ylab}{Plotting paramaters to specify plot titles or axes labels}
 

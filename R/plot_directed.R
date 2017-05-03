@@ -15,19 +15,19 @@
 ##' @description Functions to plot_directed or graph structures including customised colors, layout, states, arrows. Uses graphs functions as an extension of \code{\link[igraph]{igraph}}. Designed for plotting directed graphs.
 ##'
 ##' @param graph An \code{\link[igraph]{igraph}} object. Must be directed with known states.
-##' @param state character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively.
+##' @param state character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively. Accepts non-integer values for weighted edges provided that the sign indicates whether links are activating (positive) or inhibiting (negative). May also be entered as text for "activating" or "inhibiting" or as integers for activating (0,1) or inhibiting (-1,2). Compatible with inputs for \code{\link[graphsim]{make_state_matrix}} or \code{\link[graphsim]{generate_expression_graph}}.
 ##' @param labels character vector. For labels to plot nodes. Defaults to vertex names in graph object. Entering "" would yield unlabelled nodes.
 ##' @param layout function. Layout function as selected from \code{\link[igraph]{layout_}}. Defaults to layout.fruchterman.reingold. Alternatives include layout.kamada.kawai, layout.reingold.tilford, layout.sugiyama, and layout.davidson.harel.
 ##' @param cex.node numeric. Defaults to 1.
 ##' @param cex.label numeric. Defaults to 0.75.
 ##' @param cex.main numeric. Defaults to 0.8.
-##' @param cex.arrow numeric Defualts to 1.25.
+##' @param cex.arrow numeric Defaults to 1.25. May take a scalar applied to all edges or a vector with values for each edge respectively. 
 ##' @param col.label character. Specfies the colours of node labels passed to plot. Defaults to par("fg").
 ##' @param arrow_clip numeric Defaults to 0.075 (7.5\%).
 ##' @param pch parameter passed to plot. Defaults to 21. Recommends using selecting between 21-25 to preserve colour behaviour. Otherwise entire node will inherit border.node as it's colour, in which case a light colour is recommended to see labels.
 ##' @param border.node character. Specfies the colours of node border passed to plot. Defaults to grey33. Applies to whole node shape if pch has only one colour.
 ##' @param fill.node character. Specfies the colours of node fill passed to plot. Defaults to grey66.
-##' @param col.arrow character. Specfies the colours of arrows passed to plot. Defaults to par("fg").
+##' @param col.arrow character. Specfies the colours of arrows passed to plot. Defaults to par("fg").  May take a scalar applied to all edges or a vector with colours for each edge respectively. 
 ##' @param main,sub,xlab,ylab Plotting paramaters to specify plot titles or axes labels
 ##' @param frame.plot logical. Whether to frame plot with a box. Defaults to FALSE.
 ##' @keywords graph igraph igraph plot
@@ -66,6 +66,10 @@ plot_directed <- function(graph, state = "activating", labels = NULL, layout = l
   plot(Xn, Yn, xaxt="n", yaxt="n", xlab=xlab, ylab=ylab, frame.plot=frame.plot, cex = 2 * cex.node, pch=1, col=par()$bg, main=main, sub=sub, cex.main=cex.main)
   if(is.numeric(state)){
     state <- as.integer(state)
+    if(!all(state %in% -1:2)){
+      state <- sign(state)
+      warning("state inferred from non-integer weighted edges")
+    }
     if(all(state %in% -1:2)){
       state[state == -1] <- 2
       state[state == 0] <- 1
@@ -85,13 +89,15 @@ plot_directed <- function(graph, state = "activating", labels = NULL, layout = l
       stop()
     }
   } else{
+    if(length(col.arrow)==1) col.arrow <- rep(col.arrow, Ne)
+    if(length(cex.arrow)==1) cex.arrow <- rep(cex.arrow, Ne)
     for(i in 1:Ne){
       v0 <- es[i, ]$V1
       v1 <- es[i, ]$V2
       if(state[i] == "activating"){
-        arrows(x0 = (1-arrow_clip) * Xn[match(as.character(v0), names(vs))] + arrow_clip * Xn[match(as.character(v1), names(vs))], y0 = (1-arrow_clip) * Yn[match(as.character(v0), names(vs))] + arrow_clip * Yn[match(as.character(v1), names(vs))],  x1 = (1-arrow_clip) * Xn[match(as.character(v1), names(vs))] + arrow_clip * Xn[match(as.character(v0), names(vs))],  y1 = (1-arrow_clip) * Yn[match(as.character(v1), names(vs))]  + arrow_clip * Yn[match(as.character(v0), names(vs))], lwd=cex.arrow, col=col.arrow, length=0.15)
+        arrows(x0 = (1-arrow_clip) * Xn[match(as.character(v0), names(vs))] + arrow_clip * Xn[match(as.character(v1), names(vs))], y0 = (1-arrow_clip) * Yn[match(as.character(v0), names(vs))] + arrow_clip * Yn[match(as.character(v1), names(vs))],  x1 = (1-arrow_clip) * Xn[match(as.character(v1), names(vs))] + arrow_clip * Xn[match(as.character(v0), names(vs))],  y1 = (1-arrow_clip) * Yn[match(as.character(v1), names(vs))]  + arrow_clip * Yn[match(as.character(v0), names(vs))], lwd=cex.arrow[i], col=col.arrow[i], length=0.15)
       } else if (state[i] =="inhibiting"){
-        arrows(x0 = (1-arrow_clip) * Xn[match(as.character(v0), names(vs))] + arrow_clip * Xn[match(as.character(v1), names(vs))], y0 = (1-arrow_clip) * Yn[match(as.character(v0), names(vs))] + arrow_clip * Yn[match(as.character(v1), names(vs))],  x1 = (1-arrow_clip) * Xn[match(as.character(v1), names(vs))] + arrow_clip * Xn[match(as.character(v0), names(vs))],  y1 = (1-arrow_clip) * Yn[match(as.character(v1), names(vs))]  + arrow_clip * Yn[match(as.character(v0), names(vs))], lwd=cex.arrow, col=col.arrow, length=0.1, angle=90)
+        arrows(x0 = (1-arrow_clip) * Xn[match(as.character(v0), names(vs))] + arrow_clip * Xn[match(as.character(v1), names(vs))], y0 = (1-arrow_clip) * Yn[match(as.character(v0), names(vs))] + arrow_clip * Yn[match(as.character(v1), names(vs))],  x1 = (1-arrow_clip) * Xn[match(as.character(v1), names(vs))] + arrow_clip * Xn[match(as.character(v0), names(vs))],  y1 = (1-arrow_clip) * Yn[match(as.character(v1), names(vs))]  + arrow_clip * Yn[match(as.character(v0), names(vs))], lwd=cex.arrow[i], col=col.arrow[i], length=0.1, angle=90)
       } else{
         warning("please give state as a scalar or vector of length(E(graph))")
         stop()
