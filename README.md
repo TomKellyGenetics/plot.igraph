@@ -1,3 +1,5 @@
+[![Travis-CI Build Status](https://travis-ci.org/TomKellyGenetics/plot.igraph.svg?branch=master)](https://travis-ci.org/TomKellyGenetics/plot.igraph)
+
 ##Install
 
 To get the iGraph package from CRAN:
