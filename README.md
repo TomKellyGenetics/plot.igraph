@@ -1,6 +1,10 @@
 [![Travis-CI Build Status](https://travis-ci.org/TomKellyGenetics/plot.igraph.svg?branch=master)](https://travis-ci.org/TomKellyGenetics/plot.igraph)
 
-##Install
+# plot.igraph
+
+### Functions to plot network or graph structures including customised colors, layout, states, arrows
+
+## Installation
 
 To get the iGraph package from CRAN:
 
@@ -15,7 +19,7 @@ To get the extensions from github:
 devtools::install_github("TomKellyGenetics/plot.igraph")
 ```
 
-##Vignettes
+## Vignettes
 
 Adapted from the plotting blog http://blog.ryanwalker.us/2014/03/going-viral-with-rs-igraph-package.html (as shared on Rbloggers).
 
