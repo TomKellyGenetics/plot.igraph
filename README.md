@@ -1,4 +1,5 @@
 [![Travis-CI Build Status](https://travis-ci.org/TomKellyGenetics/plot.igraph.svg?branch=master)](https://travis-ci.org/TomKellyGenetics/plot.igraph)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/TomKellyGenetics/plot.igraph?branch=master&svg=true)](https://ci.appveyor.com/project/TomKellyGenetics/plot.igraph)
 
 # plot.igraph
 
