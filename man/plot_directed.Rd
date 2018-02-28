@@ -15,7 +15,7 @@ plot_directed(graph, state = "activating", labels = NULL,
 \arguments{
 \item{graph}{An \code{\link[igraph]{igraph}} object. Must be directed with known states.}
 
-\item{state}{character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively. Accepts non-integer values for weighted edges provided that the sign indicates whether links are activating (positive) or inhibiting (negative). May also be entered as text for "activating" or "inhibiting" or as integers for activating (0,1) or inhibiting (-1,2). Compatible with inputs for \code{\link[graphsim]{make_state_matrix}} or \code{\link[graphsim]{generate_expression_graph}}.}
+\item{state}{character or integer. Defaults to "activating". May be applied a scalar across all edges or as a vector for each edge respectively. Accepts non-integer values for weighted edges provided that the sign indicates whether links are activating (positive) or inhibiting (negative). May also be entered as text for "activating" or "inhibiting" or as integers for activating (0,1) or inhibiting (-1,2). Compatible with inputs for make_state_matrix or generate_expression_graph in the graphsim package \url{https://github.com/TomKellyGenetics/graphsim}.}
 
 \item{labels}{character vector. For labels to plot nodes. Defaults to vertex names in graph object. Entering "" would yield unlabelled nodes.}
 
