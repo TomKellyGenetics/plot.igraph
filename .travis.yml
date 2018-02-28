@@ -3,10 +3,3 @@
 language: R
 sudo: false
 cache: packages
-
-# enable remotes
-r_github_packages:
-- TomKellyGenetics/graphsim
-
-environment:
-  USE_RTOOLS: true
