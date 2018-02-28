@@ -43,3 +43,7 @@ artifacts:
 
   - path: '\*_*.zip'
     name: Bits
+
+# enable remotes
+USE_RTOOLS: true
+
