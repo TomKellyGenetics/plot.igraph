@@ -1,5 +1,6 @@
 [![Travis-CI Build Status](https://travis-ci.org/TomKellyGenetics/plot.igraph.svg?branch=master)](https://travis-ci.org/TomKellyGenetics/plot.igraph)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/TomKellyGenetics/plot.igraph?branch=master&svg=true)](https://ci.appveyor.com/project/TomKellyGenetics/plot.igraph)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](http://www.repostatus.org/badges/latest/inactive.svg)](http://www.repostatus.org/#inactive)
 
 # plot.igraph
 
