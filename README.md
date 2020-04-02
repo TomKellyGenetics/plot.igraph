@@ -1,7 +1,8 @@
 [![Travis-CI Build Status](https://travis-ci.org/TomKellyGenetics/plot.igraph.svg?branch=master)](https://travis-ci.org/TomKellyGenetics/plot.igraph)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/TomKellyGenetics/plot.igraph?branch=master&svg=true)](https://ci.appveyor.com/project/TomKellyGenetics/plot.igraph)
-[![Project Status: Moved to https://github.com/TomKellyGenetics/graphsim – The project has been merged into the graphsim package, and the version at that location should be considered authoritative.](https://www.repostatus.org/badges/latest/moved.svg)](https://www.repostatus.org/#moved) to [https://github.com/TomKellyGenetics/graphsim](https://github.com/TomKellyGenetics/graphsim)
 [![codecov](https://codecov.io/gh/TomKellyGenetics/plot.igraph/branch/master/graph/badge.svg)](https://codecov.io/gh/TomKellyGenetics/plot.igraph)
+
+[![Project Status: Moved to https://github.com/TomKellyGenetics/graphsim – The project has been merged into the graphsim package, and the version at that location should be considered authoritative.](https://www.repostatus.org/badges/latest/moved.svg)](https://www.repostatus.org/#moved) to [https://github.com/TomKellyGenetics/graphsim](https://github.com/TomKellyGenetics/graphsim)
 
 # plot.igraph
 
